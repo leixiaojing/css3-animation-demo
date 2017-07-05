@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3图片动态提示效果</title>
+	<style>
+	* {margin: 0;padding: 0; font-family: "microsoft yahei";}
+	figure {position: relative;width: 33.33%;height: 400px;overflow: hidden;float: left;background-color: #000;}
+	figure img {opacity: 0.8;transition:all .35s;}
+	figcaption {position: absolute;top: 0;left: 0;color: #fff;width: 100%;height: 100%;}
+	figcaption p,figcaption h2,figcaption div {transition:all .35s;}
+	@media screen and (min-width: 1001px) {
+		figure {width: 33.33%;}
+	}
+	@media screen and (min-width: 601px) and (max-width: 1000px) {
+		figure {width: 50%;}
+	}
+	@media screen and (max-width: 600px) {
+		figure {width: 100%;}
+	}
+
+	.test1 div {width: 80%;height: 80%;border:2px solid #fff;position: absolute;top: 10%;left: 10%;transform:translate(0,-400px) rotate(0deg);}
+	.test1 p {margin-top: 4%;margin-left: 14%;opacity: 0;transform:translate(0,100px);}
+	.test1 h2 {margin-top: 14%;margin-left: 14%;}
+	.test1:hover div {transform:translate(0,0px) rotate(360deg);}
+	.test1:hover img {opacity: 0.5;}
+	.test1:hover p {opacity: 1;transform:translate(0,0);}
+	
+	.test2 figcaption {left: 30px;top: 60px;}
+	.test2 p span {background: #fff;color: #333;padding: 4px 6px;}
+	.test2 p {margin: 16px 0;transform:translate(-210px,0);}
+	.test2 p:nth-of-type(1) {transition-delay:0.05s;}
+	.test2 p:nth-of-type(2) {transition-delay:0.1s;}
+	.test2 p:nth-of-type(3) {transition-delay:0.15s;}
+	.test2:hover p {transform:translate(0,0);}
+	.test2:hover img {transform:translate(-50px,0);opacity: 0.5;} 
+
+	.test3 h2 {margin:14% 0 4% 14%;transform:skew(90deg);}
+	.test3 p {margin-left: 14%;margin-top: 1%;transform:skew(90deg);}
+	.test3:hover h2,.test3:hover p {transform:skew(0deg);}
+	.test3:hover img {opacity: 0.5;}
+
+	.test4 div {width: 80%;height: 80%;border:2px solid #fff;position: absolute;top: 10%;left: 10%;transform:scale(1.2);opacity: 0;}
+	.test4 p {margin-top: 4%;margin-left: 14%;transfor,:scale(1.2);opacity: 0;}
+	.test4 h2 {margin-top: 14%;margin-left: 14%;transfor,:scale(1.2);opacity: 0;}
+	.test4:hover div {transform:scale(1);opacity: 1;}
+	.test4:hover img {transform:scale(1.2);opacity: 0.5;}
+	.test4:hover p {transform:scale(1); opacity: 1;}
+	.test4:hover h2 {transform:scale(1); opacity: 1;}
+
+	.test5 div {background-color: #fff;opacity: 0.8;position: absolute;width: 120%;height: 100%;top: 100%;transform-origin:left top;}
+	.test5 p {position: absolute;right: 10%;bottom: 12%;color: #333;opacity: 0;}
+	.test5 h2 {transform:translate(0,50px);opacity: 0;margin: 10% 0 0 10%;}
+	.test5:hover div {transform:rotate(-14deg);}
+	.test5:hover p {opacity: 1;}
+	.test5:hover h2 {transform:translate(0,0px);opacity: 1;}
+	.test5:hover img {opacity: 0.5;}
+
+	.test6 div {border-width: 2px;border-style: solid;width: 80%;height: 80%;top: 10%;left: 10%;position: absolute;}
+	.test6 p {margin: 2% 0 0 18%;transform:translate(0,50px);opacity: 0;}
+	.test6 h2 {margin: 14% 0 0 18%;transform:translate(0,-50px);opacity: 0;}
+	.test6 .row {border-width: 2px 0;transform:scale(0,0.85);opacity: 0;}
+	.test6 .col {border-width: 0 2px;transform:scale(0.9,0);opacity: 0;}
+	.test6:hover p,.test6:hover h2 {opacity: 1;transform:translate(0,0);}
+	.test6:hover .row {transform:scale(1,0.85);opacity: 1;}
+	.test6:hover .col {transform:scale(0.9,1);opacity: 1;}
+	.test6:hover img {opacity: 0.5;}
+	</style>
+</head>
+<body>
+	<figure class="test1">
+		<img src="images/img01.jpg" alt="">
+		<figcaption>
+			<h2>旋转动画</h2>
+			<p>飞来飞去，飞来飞去</p>
+			<div></div>
+		</figcaption>
+	</figure>
+	<figure class="test2">
+		<img src="images/img02.jpg" alt="">
+		<figcaption>
+			<h2>平滑动画-多段文字</h2>
+			<p><span>多条图片动画文字</span></p>
+			<p><span>逐一键入动画</span></p>
+			<p><span>利用动画延时达到效果</span></p>
+		</figcaption>
+	</figure>
+	<figure class="test3">
+		<img src="images/img03.jpg" alt="">
+		<figcaption>
+			<h2>扭曲动画-文字扭曲</h2>
+			<p>利用扭曲和位移，制作飞入的效果</p>
+			<p>扭曲角度为90度，元素就看不见了</p>
+		</figcaption>
+	</figure>
+	<figure class="test4">
+		<img src="images/img04.jpg" alt="">
+		<figcaption>
+			<h2>简单缩放效果</h2>
+			<p>通过简单的单纯缩放制作动画</p>
+			<div></div>
+		</figcaption>
+	</figure>
+	<figure class="test5">
+		<img src="images/img05.jpg" alt="">
+		<figcaption>
+			<h2>旋转动画-旋转三角浮出</h2>
+			<div></div>
+			<p>文字-------文字</p>
+		</figcaption>
+	</figure>
+	<figure class="test6">
+		<img src="images/img06.jpg" alt="">
+		<figcaption>
+			<h2>缩放动画</h2>
+			<p>绘制线条效果-通过缩放效果绘制边框</p>
+			<div class="row"></div>
+			<div class="col"></div>
+		</figcaption>
+	</figure>
+</body>
+</html>
